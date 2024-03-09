@@ -25,14 +25,3 @@
         state: latest
         exclude: kernel*
       register: apt_upgrade
-    
-    - name: send discord messagewith result
-      uri:
-        url: "{{ discord_webhook }}"
-        method: POST
-        body_format: json
-        body: '{"content": "Vysledek {{ inventory_hostname }}: {{apt_upgrade.stdout[:-1]}}"}'
-        headers:
-          Content-Type: application/json
-        status_code: 204
-      #when: apt_upgrade.stdout[:-1]|int > 80
