@@ -13,7 +13,7 @@
         url: "{{ discord_webhook }}"
         method: POST
         body_format: json
-        body: '{"content": "Na {{ inventory_hostname }} je zbyle misto na disku pres 80%! ({{disk_usage.stdout[:-1]}})"}'
+        body: '{"content": "Na {{ inventory_hostname }} je vyuzite misto na disku pres 80%! ({{disk_usage.stdout[:-1]}})"}'
         headers:
           Content-Type: application/json
         status_code: 204
